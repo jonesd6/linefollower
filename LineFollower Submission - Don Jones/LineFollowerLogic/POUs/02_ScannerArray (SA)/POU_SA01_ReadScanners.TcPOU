@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <POU Name="POU_SA01_ReadScanners" Id="{a1d13425-713e-4ee5-9a6a-45a4c7136efd}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM POU_SA01_ReadScanners
+VAR
+	
+	LeftOuter				: BOOL;
+	LeftInner				: BOOL; // Based on logic, could omit using inner scanners.
+	RightOuter				: BOOL; // Based on logic, could omit using inner scanners.
+	RightInner				: BOOL;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[LeftOuter					:= R100_01;
+LeftInner					:= R100_02; 
+RightInner					:= R100_03; 
+RightOuter					:= R100_04;
+
+IF LeftOuter = TRUE THEN
+	
+	LeftLimitExceeded 		:= TRUE;
+	
+ELSE
+	
+	LeftLimitExceeded 		:= FALSE;
+	
+END_IF
+
+IF RightOuter = TRUE THEN
+	
+	RightLimitExceeded 		:= TRUE;
+	
+ELSE
+	
+	RightLimitExceeded 		:= FALSE;
+	
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="POU_SA01_ReadScanners">
+      <LineId Id="12" Count="2" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="22" Count="1" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <GVL Name="GVL" Id="{9780e9c6-3f01-408f-a62c-3bd16b7bea4b}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	
+	SystemON				: BOOL;
+	
+	LeftMotor				: AXIS_REF;
+	RightMotor				: AXIS_REF;
+	
+	DriveTrainEnabled		: BOOL;
+	
+	JogLeftMotor			: BOOL;
+	JogRightMotor			: BOOL;
+	
+	LeftLimitExceeded		: BOOL;
+	RightLimitExceeded		: BOOL;
+	HaltLeftMotor			: BOOL;
+	HaltRightMotor			: BOOL;
+	
+	R100_01					: BOOL;
+	R100_02					: BOOL;
+	R100_03					: BOOL;
+	R100_04					: BOOL;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

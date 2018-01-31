@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <POU Name="POU_SM01_LineBend" Id="{2189710a-6cb8-4a79-8677-e78bd700b2e9}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM POU_SM01_LineBend
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF LineAngle < -LINE_ANGLE_SCALING THEN
+	
+	R100_01 				:= TRUE;
+	
+ELSE
+	
+	R100_01					:= FALSE;
+	
+END_IF
+
+IF LineAngle > LINE_ANGLE_SCALING THEN
+	
+	R100_04 				:= TRUE;
+	
+ELSE
+	
+	R100_04					:= FALSE;
+	
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="POU_SM01_LineBend">
+      <LineId Id="5" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="15" Count="8" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

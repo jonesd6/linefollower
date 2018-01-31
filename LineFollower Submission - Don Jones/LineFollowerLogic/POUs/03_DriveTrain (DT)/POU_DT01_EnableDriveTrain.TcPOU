@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <POU Name="POU_DT01_EnableDriveTrain" Id="{12442c86-3e4f-4aa0-b072-33d0a6e585a2}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM POU_DT01_EnableDriveTrain
+VAR
+	
+	EnableDriveTrain 		: BOOL;
+	
+	fbLeftPower 			: MC_Power;
+	LeftMotorEnabled		: BOOL;
+	
+	fbRightPower 			: MC_Power;
+	RightMotorEnabled 		: BOOL;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[EnableDriveTrain 			:= TRUE;
+
+fbLeftPower(
+	Axis					:= LeftMotor,
+	Enable					:= EnableDriveTrain,
+	Enable_Positive			:= TRUE,
+	Status					=> LeftMotorEnabled);
+	
+fbRightPower(
+	Axis					:= RightMotor,
+	Enable					:= EnableDriveTrain,
+	Enable_Positive			:= TRUE,
+	Status					=> RightMotorEnabled);
+	
+IF LeftMotorEnabled AND RightMotorEnabled THEN
+	
+	DriveTrainEnabled 		:= TRUE;
+	
+ELSE
+	
+	DriveTrainEnabled 		:= FALSE;
+	
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="POU_DT01_EnableDriveTrain">
+      <LineId Id="50" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="20" Count="9" />
+      <LineId Id="31" Count="1" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="34" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
